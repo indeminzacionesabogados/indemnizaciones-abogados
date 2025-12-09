@@ -1,0 +1,1211 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const navLinks = [
+	{ label: 'Servicios', href: '#servicios' },
+	{ label: 'Responsabilidad civil y de estado', href: '#serv-responsabilidad' },
+	{ label: 'Derecho de seguros', href: '#serv-seguros' },
+	{ label: 'Derecho médico', href: '#serv-medico' },
+	{ label: 'Accidentes laborales', href: '#serv-laboral' },
+	{ label: 'Pensiones', href: '#serv-pensiones' },
+	{ label: '¿Quiénes somos?', href: '#quienes-somos' },
+	{ label: 'Éxito', href: '#exito' },
+	{ label: 'Nosotros', href: '#quienes-somos' },
+];
+
+const services = [
+	{
+		id: 'serv-accidentes',
+		title: 'Accidentes de tránsito',
+		tagline: '¡Que te indemnicen justo!',
+		copy: 'Nos encargamos desde los procesos contravencionales (multas y comparendos) hasta la defensa integral para obtener la compensación adecuada.',
+		definition:
+			'Cuando un vehículo, peatón o pasajero resulta lesionado, evaluamos daños materiales, lucro cesante, incapacidad y sufrimiento para reclamar ante aseguradoras y jueces.',
+		cases: [
+			'Choques múltiples o con vehículos oficiales',
+			'Siniestros con transporte público o de carga',
+			'Negativa de pago de aseguradoras tras el SOAT',
+		],
+	},
+	{
+		id: 'serv-seguros',
+		title: 'Reclamación de seguros',
+		tagline: 'Que la póliza SÍ te responda.',
+		copy: 'Activamos pólizas de vida, cumplimiento, hogar y vehiculares; negociamos con las aseguradoras para que paguen lo que prometieron.',
+		definition:
+			'Revisamos las condiciones particulares de tu póliza, obligaciones, exclusiones y tiempos de respuesta para exigir el pago amistoso o judicialmente.',
+		cases: [
+			'Demoras injustificadas de indemnizaciones',
+			'Interpretaciones abusivas de exclusiones',
+			'Rechazo de pólizas de vida o incapacidad',
+		],
+	},
+	{
+		id: 'serv-medico',
+		title: 'Responsabilidad médica',
+		tagline: 'Defendemos tu salud y tus derechos.',
+		copy: 'Especialistas en derecho médico y mala praxis. Convertimos historias clínicas en pruebas sólidas para reclamar reparación.',
+		definition:
+			'Analizamos estándares médicos, guías de práctica y protocolos hospitalarios para demostrar fallos en el diagnóstico, tratamiento o seguimiento.',
+		cases: [
+			'Cirugías con secuelas permanentes',
+			'Errores de medicación o anestesia',
+			'Partos con lesiones maternas o neonatales',
+		],
+	},
+	{
+		id: 'serv-responsabilidad',
+		title: 'Responsabilidad civil y del Estado',
+		tagline: 'Demandas al Estado: contra la injusticia.',
+		copy: 'Litigamos ante la jurisdicción contencioso-administrativa cuando un agente estatal ocasiona daños que deben ser reparados.',
+		definition:
+			'Determinamos si existió falla en el servicio, daño especial o privación injusta de la libertad y calculamos el monto indemnizable para tu familia.',
+		cases: [
+			'Privación injusta de la libertad',
+			'Accidentes causados por obras públicas',
+			'Daños por omisión de cuerpos de seguridad',
+		],
+	},
+	{
+		id: 'serv-laboral',
+		title: 'Accidentes laborales',
+		tagline: 'Protegemos tu ingreso.',
+		copy: 'Gestionamos reclamaciones frente a ARL y empleadores para cubrir incapacidades, secuelas y reintegros.',
+		definition:
+			'Evaluamos la calificación de pérdida de capacidad laboral, comparamos dictámenes y exigimos prestaciones, pensiones o indemnizaciones complementarias.',
+		cases: [
+			'Caídas en altura o sin protocolos de seguridad',
+			'Enfermedades laborales no reconocidas',
+			'Despidos tras incapacidad prolongada',
+		],
+	},
+	{
+		id: 'serv-pensiones',
+		title: 'Pensiones',
+		tagline: '¡Queremos que disfrutes tu retiro!',
+		copy: 'Acompañamos trámites pensionales, reliquidaciones y reconocimiento de pensiones de sobrevivientes.',
+		definition:
+			'Revisamos semanas cotizadas, historia laboral y fondos para asegurar el acceso oportuno a tu pensión o mesada correcta.',
+		cases: [
+			'Negativa de pensión por falta de semanas',
+			'Reliquidación para mejorar el valor de la mesada',
+			'Pensión de invalidez o sobreviviente demorada',
+		],
+	},
+];
+
+const testimonials = [
+	{
+		name: 'Alejandra Torres',
+		caseType: 'Accidente laboral',
+		quote:
+			'“Convirtieron un caso que parecía perdido en una indemnización completa. Me explicaron cada paso y nunca me sentí sola.”',
+		image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80',
+	},
+	{
+		name: 'Familia Ramírez',
+		caseType: 'Responsabilidad médica',
+		quote:
+			'“Documentaron la negligencia con rigor médico y logramos la reparación para seguir adelante con tranquilidad.”',
+		image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=80',
+	},
+	{
+		name: 'Testimonio reservado',
+		caseType: 'Seguro de vida',
+		quote:
+			'“Reclamamos durante meses sin respuesta. El equipo gestionó el pago completo en cuestión de semanas.”',
+		image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=500&q=80',
+	},
+	{
+		name: 'Julián Herrera',
+		caseType: 'Demanda al Estado',
+		quote: '“Logramos la reparación tras una privación injusta. El acompañamiento fue impecable.”',
+		image: 'https://images.unsplash.com/photo-1528892952291-009c663ce843?auto=format&fit=crop&w=500&q=80',
+	},
+];
+---
+
+<Layout
+	title="Organización Jurídica Indemnizaciones Abogados | Responsabilidad civil, seguros y derecho médico"
+	description="Despacho especializado en responsabilidad civil, derecho de seguros y pensiones. Atención nacional, consulta gratuita y acompañamiento estratégico."
+>
+	<main class="landing">
+		<header class="masthead">
+			<nav class="site-nav">
+				<a class="logo" href="#top" aria-label="Organización Jurídica Indemnizaciones Abogados">
+					<img class="logo__mark" src="/logo.png" alt="Logo Indemnizaciones Abogados" width="48" height="48" loading="lazy" />
+					<span class="logo__text logo__text--stacked">
+						<span>ORGANIZACIÓN JURÍDICA</span>
+						<span>INDEMNIZACIONES ABOGADOS</span>
+					</span>
+				</a>
+
+				<ul class="nav__links" aria-label="Navegación principal">
+					{navLinks.map((item) => (
+						<li>
+							<a href={item.href}>{item.label}</a>
+						</li>
+					))}
+				</ul>
+
+				<a class="nav__cta" href="#contacto">Hablemos ya</a>
+			</nav>
+
+			<section class="hero">
+				<div class="hero__overlay">
+					<div class="hero__card">
+						<p class="hero__eyebrow">Especialistas en responsabilidad civil y seguros</p>
+						<h1>Somos el equipo legal que convierte accidentes en resultados reales.</h1>
+						<p class="hero__copy">
+							Después de un accidente o problema legal, tu única preocupación debe ser seguir adelante.
+							Nosotros negociamos, litigamos y movemos cada pieza para que recuperes lo que es tuyo.
+						</p>
+						<div class="hero__actions">
+							<a
+								class="btn btn--light"
+								href="https://wa.me/573001112233"
+								target="_blank"
+								rel="noreferrer"
+								aria-label="Enviar mensaje por WhatsApp"
+							>
+								Contáctanos por WhatsApp
+							</a>
+							<a class="btn btn--outline" href="#contacto">Cuéntanos tu caso</a>
+						</div>
+						<p class="hero__note">Atendemos responsabilidad civil, derecho médico, seguros y pensiones.</p>
+					</div>
+					<div class="hero__list">
+						<p class="hero__list-title">Áreas prioritarias</p>
+						<ul>
+							<li>Responsabilidad civil y del Estado</li>
+							<li>Derecho de seguros y cumplimiento</li>
+							<li>Derecho médico y mala praxis</li>
+							<li>Accidentes laborales y pensiones</li>
+						</ul>
+						<p class="hero__list-note">Respuesta en menos de 2 horas hábiles.</p>
+					</div>
+				</div>
+			</section>
+		</header>
+
+		<section id="quienes-somos" class="section intro">
+			<div class="section__header">
+				<p class="section__eyebrow">Quiénes somos</p>
+				<h2>Aliados legales que combinan experiencia real y cercanía.</h2>
+			</div>
+			<p>
+				Somos Organización Jurídica Indemnizaciones Abogados, un equipo de profesionales que combina experiencia
+				conocimiento profundo en derecho. Nos especializamos en Responsabilidad Civil, Derecho de Seguros,
+				Accidentes de Tránsito, Derecho Médico, Accidentes Laborales, Pensiones y más, enfocados siempre en un
+				solo objetivo: defender tus derechos y ofrecerte la solución jurídica efectiva y personalizada que
+				necesitas. Aquí no solo encuentras abogados, encuentras aliados.
+			</p>
+			<div class="intro__grid">
+				<div>
+					<h3>¿Por qué confiar?</h3>
+					<ul>
+						<li>Diagnóstico gratis con hoja de ruta clara.</li>
+						<li>Equipo multidisciplinario con peritos médicos y financieros.</li>
+						<li>Información transparente en cada fase del caso.</li>
+					</ul>
+				</div>
+				<div>
+					<h3>Modelo de trabajo</h3>
+					<ul>
+						<li>Investigación y recolección de pruebas desde el día uno.</li>
+						<li>Negociación prioritaria y, si es necesario, litigio estratégico.</li>
+						<li>Herramientas digitales para seguimiento y firma a distancia.</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="servicios" class="section services" aria-label="Áreas de especialización">
+			<div class="section__header">
+				<p class="section__eyebrow">Áreas de práctica</p>
+				<h2>Especialidades diseñadas para cada tipo de indemnización.</h2>
+				<p>Explora qué hacemos, cómo lo hacemos y los casos más comunes que gestionamos.</p>
+			</div>
+
+			<div class="services__grid">
+				{services.map((service) => (
+					<article id={service.id} class="service-card">
+						<p class="service-card__tagline">{service.tagline}</p>
+						<h3>{service.title}</h3>
+						<p class="service-card__copy">{service.copy}</p>
+						<p class="service-card__definition">
+							<strong>¿Qué es?</strong> {service.definition}
+						</p>
+						<div class="service-card__cases">
+							<p>Casos frecuentes:</p>
+							<ul>
+								{service.cases.map((caseItem) => (
+									<li>{caseItem}</li>
+								))}
+							</ul>
+						</div>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section id="exito" class="section testimonials" aria-label="Testimonios y casos de éxito">
+			<div class="section__header">
+				<p class="section__eyebrow">Historias reales</p>
+				<h2>
+					Aquí van las historias de personas que pudieron cerrar su capítulo legal y seguir adelante gracias a
+					nuestro acompañamiento.
+				</h2>
+				<p>Incluimos testimonios cortos y casos anónimos cuando la confidencialidad es prioritaria.</p>
+			</div>
+
+			<div class="testimonials__carousel" data-carousel>
+				<div class="testimonials__track">
+					{testimonials.map((item) => (
+						<figure class="testimonial">
+							<img src={item.image} alt={`Foto de ${item.name}`} loading="lazy" width="320" height="360" />
+							<figcaption>
+								<p class="testimonial__quote">{item.quote}</p>
+								<p class="testimonial__meta">
+									<span>{item.name}</span> · <span>{item.caseType}</span>
+								</p>
+							</figcaption>
+						</figure>
+					))}
+				</div>
+				<button class="carousel-btn carousel-btn--prev" type="button" aria-label="Ver historias anteriores">‹</button>
+				<button class="carousel-btn carousel-btn--next" type="button" aria-label="Ver historias siguientes">›</button>
+			</div>
+		</section>
+
+		<section id="contacto" class="section contact">
+			<div class="contact__info">
+				<div class="section__header">
+					<p class="section__eyebrow">Información de contacto</p>
+					<h2>Cuéntanos tu caso y recibe una ruta clara para recuperar lo que es tuyo.</h2>
+				</div>
+				<p>
+					Cobertura nacional e internacional mediante aliados. Atendemos vía presencial, videollamadas o
+					canales escritos. Responderemos en menos de un día hábil con pasos concretos, tiempos estimados y
+					posibles escenarios de negociación.
+				</p>
+				<ul class="contact__list">
+					<li>
+						<strong>Correo:</strong>
+						<a href="mailto:indemnizacionesabogados1@gmail.com">indemnizacionesabogados1@gmail.com</a>
+					</li>
+					<li>
+						<strong>WhatsApp:</strong>
+						<a href="https://wa.me/573001112233" target="_blank" rel="noreferrer">¡Escríbenos ahora mismo!</a>
+					</li>
+					<li>
+						<strong>Disponibilidad:</strong> Lunes a sábado · 7:00 a. m. - 8:00 p. m.
+					</li>
+				</ul>
+			</div>
+
+			<form class="contact__form">
+				<label>
+					<span>Nombre</span>
+					<input type="text" name="nombre" placeholder="Tu nombre completo" required />
+				</label>
+				<label>
+					<span>Teléfono</span>
+					<input type="tel" name="telefono" placeholder="+57 300 000 0000" required />
+				</label>
+				<label>
+					<span>Ciudad</span>
+					<input type="text" name="ciudad" placeholder="Ciudad / País" required />
+				</label>
+				<label>
+					<span>Email</span>
+					<input type="email" name="email" placeholder="tucorreo@email.com" required />
+				</label>
+				<label>
+					<span>Mensaje</span>
+					<textarea
+						name="mensaje"
+						rows="4"
+						placeholder="Describe brevemente qué ocurrió o qué necesitas saber."
+						required
+					></textarea>
+				</label>
+				<button type="submit" class="btn btn--light btn--full">Enviar y recibir asesoría</button>
+				<p class="contact__disclaimer">
+					Al enviar el formulario aceptas nuestra Política de Tratamiento de Datos Personales y el uso de tu
+					información para brindarte asesoramiento.
+				</p>
+			</form>
+		</section>
+
+		<footer class="footer" aria-label="Información legal">
+			<div class="footer__top">
+				<div>
+					<p class="logo__text">INDEMNIZACIONES ABOGADOS</p>
+					<p>© {new Date().getFullYear()} Todos los derechos reservados.</p>
+				</div>
+				<div class="footer__links">
+					<a href="#">Política de Tratamiento de Datos Personales</a>
+					<a href="#">Términos y Condiciones</a>
+				</div>
+			</div>
+			<p class="footer__credits">
+				Desarrollado por <a href="https://www.jalmtech.com/" target="_blank" rel="noreferrer">JAML Tech</a>
+			</p>
+		</footer>
+
+		<div class="floating-actions" aria-label="Accesos directos a redes y WhatsApp">
+			<a class="floating floating--whatsapp" href="https://wa.me/573001112233" target="_blank" rel="noreferrer" aria-label="Abrir conversación en WhatsApp">
+				<span class="floating__icon floating__icon--whatsapp" aria-hidden="true">
+					<svg viewBox="0 0 32 32" role="presentation">
+						<path
+							d="M16 3C9.373 3 4 8.373 4 15c0 2.273.64 4.44 1.848 6.338L4 29l8.004-1.827C13.41 27.732 14.676 28 16 28c6.627 0 12-5.373 12-12S22.627 3 16 3Z"
+							fill="#25d366"
+						/>
+						<path
+							d="M20.918 18.741c-.347-.173-2.052-1.014-2.37-1.129-.319-.116-.552-.173-.784.173-.231.347-.9 1.129-1.104 1.361-.205.231-.409.26-.756.086-.347-.173-1.463-.538-2.787-1.714-1.031-.92-1.727-2.062-1.929-2.408-.202-.347-.021-.534.152-.707.157-.157.347-.408.52-.612.173-.205.231-.347.347-.579.116-.231.058-.433-.029-.606-.086-.173-.784-1.889-1.074-2.589-.283-.679-.572-.587-.784-.598-.202-.01-.433-.012-.664-.012-.231 0-.605.086-.922.433-.318.347-1.212 1.184-1.212 2.888s1.24 3.35 1.412 3.586c.173.231 2.44 3.728 5.908 5.228 3.468 1.499 3.468.999 4.097.938.629-.058 2.052-.829 2.341-1.629.289-.8.289-1.486.202-1.629-.086-.143-.318-.231-.664-.404Z"
+							fill="#fff"
+						/>
+					</svg>
+				</span>
+				<div>
+					<p>¿Necesitas ayuda?</p>
+					<strong>¡Escríbenos ya!</strong>
+				</div>
+			</a>
+			<a
+				class="floating floating--instagram"
+				href="https://www.instagram.com/indemnizaciones.abogados"
+				target="_blank"
+				rel="noreferrer"
+				aria-label="Ir a Instagram"
+			>
+				<span class="floating__icon floating__icon--instagram" aria-hidden="true">
+					<svg viewBox="0 0 32 32" role="presentation">
+						<defs>
+							<linearGradient id="igGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+								<stop offset="0%" stop-color="#fcb045" />
+								<stop offset="50%" stop-color="#fd1d1d" />
+								<stop offset="100%" stop-color="#833ab4" />
+							</linearGradient>
+						</defs>
+						<path
+							d="M22.667 4H9.333A5.333 5.333 0 0 0 4 9.333v13.334A5.333 5.333 0 0 0 9.333 28h13.334A5.333 5.333 0 0 0 28 22.667V9.333A5.333 5.333 0 0 0 22.667 4Z"
+							fill="url(#igGrad)"
+						/>
+						<path
+							d="M16 12.667A3.333 3.333 0 1 1 12.667 16 3.333 3.333 0 0 1 16 12.667Zm0-2A5.333 5.333 0 1 0 21.333 16 5.333 5.333 0 0 0 16 10.667Zm6.4-1.867a1.2 1.2 0 1 0 1.2 1.2 1.2 1.2 0 0 0-1.2-1.2Z"
+							fill="#fff"
+						/>
+					</svg>
+				</span>
+			</a>
+		</div>
+	</main>
+
+	<script is:inline>
+		const carousel = document.querySelector('[data-carousel]');
+		if (carousel) {
+			const track = carousel.querySelector('.testimonials__track');
+			const cards = carousel.querySelectorAll('.testimonial');
+			const prevBtn = carousel.querySelector('.carousel-btn--prev');
+			const nextBtn = carousel.querySelector('.carousel-btn--next');
+			let intervalId;
+			let manualControl = false;
+
+			const getStep = () => {
+				const card = cards[0];
+				if (!card) return track.clientWidth;
+				const styles = getComputedStyle(track);
+				const gap = parseFloat(styles.columnGap || styles.gap || '0');
+				return card.getBoundingClientRect().width + gap;
+			};
+
+			const move = (direction = 1) => {
+				const step = getStep();
+				if (direction > 0) {
+					if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) {
+						track.scrollTo({ left: 0, behavior: 'smooth' });
+					} else {
+						track.scrollBy({ left: step, behavior: 'smooth' });
+					}
+				} else {
+					if (track.scrollLeft <= 0) {
+						track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+					} else {
+						track.scrollBy({ left: -step, behavior: 'smooth' });
+					}
+				}
+			};
+
+			const start = () => {
+				if (cards.length > 3 && !manualControl) {
+					intervalId = setInterval(() => move(1), 5000);
+				}
+			};
+
+			const stop = () => {
+				if (intervalId) clearInterval(intervalId);
+			};
+
+			if (cards.length > 3) {
+				start();
+				carousel.addEventListener('mouseenter', stop);
+				carousel.addEventListener('mouseleave', () => {
+					if (!manualControl) start();
+				});
+			}
+
+			const handleManual = (direction) => {
+				manualControl = true;
+				stop();
+				move(direction);
+			};
+
+			prevBtn?.addEventListener('click', () => handleManual(-1));
+			nextBtn?.addEventListener('click', () => handleManual(1));
+		}
+	</script>
+</Layout>
+
+<style>
+	:root {
+		--bg: #f4f6fb;
+		--fg: #030f21;
+		--muted: #516078;
+		--line: rgba(3, 15, 33, 0.1);
+		--accent: #c8a033;
+		--accent-bright: #f9d423;
+		--surface: #ffffff;
+		--surface-alt: #f2f4fb;
+		--shadow: 0 20px 40px rgba(3, 15, 33, 0.12);
+		font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+		color: var(--fg);
+		background-color: var(--bg);
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		min-height: 100vh;
+		background: radial-gradient(circle at top, rgba(3, 15, 33, 0.08), transparent 60%), var(--bg);
+		color: var(--fg);
+	}
+
+	.landing {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: clamp(1.25rem, 2vw, 2.5rem) clamp(1.25rem, 3vw, 3rem) 3rem;
+	}
+
+	a {
+		color: inherit;
+	}
+
+	.masthead {
+		display: flex;
+		flex-direction: column;
+		gap: 2.25rem;
+		padding-top: 0.5rem;
+	}
+
+	.site-nav {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		position: sticky;
+		top: 0.5rem;
+		padding: 0.65rem clamp(1rem, 2vw, 1.5rem);
+		border-radius: 999px;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		box-shadow: var(--shadow);
+		z-index: 10;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+	}
+
+	.logo {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
+		text-decoration: none;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		flex-shrink: 0;
+	}
+
+	.logo__mark {
+		width: 3rem;
+		height: 3rem;
+		object-fit: contain;
+		border-radius: 0.75rem;
+		box-shadow: 0 6px 16px rgba(3, 15, 33, 0.15);
+	}
+
+	.logo__text--stacked {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.1;
+	}
+
+	.logo__text--stacked span:first-child {
+		font-size: 0.75rem;
+		letter-spacing: 0.15em;
+	}
+
+	.nav__links {
+		display: flex;
+		gap: 0.8rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		overflow-x: auto;
+		scrollbar-width: none;
+		font-size: 0.78rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		flex: 1 1 auto;
+		justify-content: center;
+	}
+
+	.nav__links::-webkit-scrollbar {
+		display: none;
+	}
+
+	.nav__links a {
+		color: var(--muted);
+		text-decoration: none;
+		white-space: nowrap;
+		padding: 0.35rem 0.75rem;
+		border-radius: 999px;
+		transition: background 0.2s ease, color 0.2s ease;
+	}
+
+	.nav__links a:hover {
+		background: rgba(200, 160, 51, 0.12);
+		color: var(--accent);
+	}
+
+	.nav__cta {
+		margin-left: 0;
+		padding: 0.55rem 1.2rem;
+		border-radius: 999px;
+		background: var(--accent);
+		color: #ffffff;
+		text-decoration: none;
+		font-weight: 600;
+		box-shadow: 0 12px 25px rgba(163, 116, 12, 0.35);
+	}
+
+	.hero {
+		position: relative;
+		min-height: 420px;
+		border-radius: 1.75rem;
+		overflow: hidden;
+		background-image: linear-gradient(rgba(3, 15, 33, 0.35), rgba(3, 15, 33, 0.65)),
+			url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80');
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		border: 1px solid var(--line);
+		box-shadow: var(--shadow);
+	}
+
+	.hero__overlay {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch;
+		padding: clamp(1.75rem, 3vw, 3rem);
+		gap: clamp(1.5rem, 4vw, 3rem);
+	}
+
+	.hero__card {
+		flex: 1 1 520px;
+		background: rgba(255, 255, 255, 0.95);
+		padding: clamp(1.5rem, 3vw, 2.75rem);
+		border-radius: 1.5rem;
+		box-shadow: 0 35px 65px rgba(3, 15, 33, 0.35);
+		color: var(--fg);
+		border: 1px solid rgba(200, 160, 51, 0.2);
+	}
+
+	.hero__list {
+		flex: 1 1 320px;
+		background: rgba(3, 15, 33, 0.75);
+		color: #fff;
+		border-radius: 1.5rem;
+		padding: clamp(1.5rem, 3vw, 2.5rem);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		box-shadow: 0 25px 55px rgba(3, 15, 33, 0.35);
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.hero__list-title {
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		font-size: 0.75rem;
+		color: var(--accent-bright);
+	}
+
+	.hero__list ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.hero__list li {
+		padding-bottom: 0.35rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+		font-weight: 600;
+	}
+
+	.hero__list-note {
+		margin: auto 0 0;
+		font-size: 0.95rem;
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	.hero__eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: 0.75rem;
+		color: var(--accent);
+		margin-bottom: 0.75rem;
+	}
+
+	h1 {
+		margin: 0 0 1rem 0;
+		font-size: clamp(2.2rem, 5vw, 3.3rem);
+		line-height: 1.2;
+		color: #030f21;
+	}
+
+	.hero__copy {
+		color: #42506a;
+		font-size: 1rem;
+	}
+
+	.hero__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin: 1.75rem 0 1rem;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 0.85rem 1.6rem;
+		border-radius: 100px;
+		text-decoration: none;
+		font-weight: 600;
+		cursor: pointer;
+		border: 1px solid transparent;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.btn--light {
+		background: var(--accent);
+		color: #ffffff;
+		box-shadow: 0 15px 30px rgba(163, 116, 12, 0.3);
+	}
+
+	.btn--outline {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	.btn--ghost {
+		color: var(--muted);
+		border-color: var(--line);
+		background: var(--surface);
+	}
+
+	.btn--full {
+		width: 100%;
+	}
+
+	.btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 20px 35px rgba(15, 23, 42, 0.15);
+	}
+
+	.hero__note {
+		margin: 0;
+		font-size: 0.9rem;
+		color: #6b7280;
+	}
+
+	.section {
+		margin-top: clamp(3rem, 5vw, 4.25rem);
+		padding: clamp(1.5rem, 3vw, 2.75rem);
+		border: 1px solid var(--line);
+		border-radius: 1.5rem;
+		background: var(--surface);
+		box-shadow: var(--shadow);
+	}
+
+	.section__header {
+		margin-bottom: 1.3rem;
+	}
+
+	.section__eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		font-size: 0.7rem;
+		color: var(--accent);
+		margin: 0 0 0.35rem;
+	}
+
+	.section p {
+		color: var(--muted);
+	}
+
+	.intro__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.intro__grid ul,
+	.contact__list {
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+		color: var(--muted);
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+	}
+
+	.contact__list a {
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.contact__list a:hover {
+		text-decoration: underline;
+	}
+
+	.services__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.25rem;
+	}
+
+	.service-card {
+		border: 1px solid var(--line);
+		border-radius: 1.25rem;
+		padding: 1.5rem;
+		background: var(--surface-alt);
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.service-card__tagline {
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-size: 0.72rem;
+		color: var(--accent);
+		margin: 0;
+	}
+
+	.service-card__copy,
+	.service-card__definition {
+		color: var(--muted);
+		margin: 0;
+	}
+
+	.service-card__cases {
+		border-top: 1px solid var(--line);
+		padding-top: 0.75rem;
+	}
+
+	.service-card__cases ul {
+		margin: 0.5rem 0 0;
+		padding-left: 1.15rem;
+		color: var(--muted);
+	}
+
+	.testimonials__carousel {
+		position: relative;
+		overflow: hidden;
+		margin-top: 1.5rem;
+	}
+
+	.testimonials__track {
+		display: flex;
+		gap: 1.25rem;
+		overflow: hidden;
+		scroll-behavior: smooth;
+	}
+
+	.testimonial {
+		position: relative;
+		flex: 0 0 calc((100% - 2.5rem) / 3);
+		border-radius: 1.5rem;
+		overflow: hidden;
+		min-height: 360px;
+		isolation: isolate;
+		box-shadow: 0 20px 45px rgba(3, 15, 33, 0.2);
+	}
+
+	.testimonial img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		filter: brightness(0.85);
+		z-index: -2;
+	}
+
+	.testimonial::after {
+		content: '';
+		position: absolute;
+		inset: auto 0 0 0;
+		height: 55%;
+		background: linear-gradient(180deg, rgba(3, 15, 33, 0) 0%, rgba(3, 15, 33, 0.85) 70%);
+		z-index: -1;
+	}
+
+	.testimonial figcaption {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding: 1.5rem;
+		color: #fff;
+	}
+
+	.testimonial__quote {
+		margin: 0 0 0.75rem;
+		font-style: italic;
+	}
+
+	.testimonial__meta {
+		margin: 0;
+		color: rgba(255, 255, 255, 0.85);
+		font-size: 0.92rem;
+	}
+
+	.carousel-btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 2.75rem;
+		height: 2.75rem;
+		border-radius: 50%;
+		border: none;
+		background: rgba(3, 15, 33, 0.75);
+		color: #fff;
+		font-size: 1.5rem;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 12px 30px rgba(3, 15, 33, 0.25);
+	}
+
+	.carousel-btn--prev {
+		left: 0.5rem;
+	}
+
+	.carousel-btn--next {
+		right: 0.5rem;
+	}
+
+	@media (max-width: 1024px) {
+		.testimonial {
+			flex: 0 0 calc((100% - 1rem) / 2);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.testimonials__track {
+			scroll-snap-type: x mandatory;
+			overflow-x: auto;
+		}
+
+		.testimonial {
+			flex: 0 0 90%;
+			scroll-snap-align: start;
+			min-height: 320px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.site-nav {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.75rem;
+			border-radius: 1.25rem;
+		}
+
+		.nav__links {
+			width: 100%;
+			justify-content: flex-start;
+		}
+
+		.nav__cta {
+			width: 100%;
+			text-align: center;
+		}
+
+		.hero__overlay {
+			flex-direction: column;
+			padding: 1.5rem;
+		}
+
+		.hero__card,
+		.hero__list {
+			flex: 1 1 auto;
+		}
+
+		.carousel-btn {
+			display: none;
+		}
+	}
+
+	@media (max-width: 540px) {
+		.logo__text--stacked span:first-child {
+			font-size: 0.65rem;
+		}
+
+		.logo__text--stacked span:last-child {
+			font-size: 0.85rem;
+		}
+
+		.hero__card {
+			padding: 1.25rem;
+		}
+
+		.hero__actions {
+			flex-direction: column;
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 420px) {
+		.floating-actions {
+			right: 0.75rem;
+			bottom: 0.75rem;
+		}
+
+		.floating {
+			padding: 0.75rem 0.9rem;
+		}
+	}
+
+	.contact {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+		align-items: start;
+	}
+
+	.contact__form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+		padding: 1.5rem;
+		border: 1px solid var(--line);
+		border-radius: 1.5rem;
+		background: var(--surface-alt);
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-weight: 600;
+		color: var(--fg);
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		padding: 0.85rem 1rem;
+		border-radius: 0.85rem;
+		border: 1px solid var(--line);
+		background: #fff;
+		color: var(--fg);
+		font: inherit;
+		box-shadow: inset 0 1px 2px rgba(3, 15, 33, 0.08);
+	}
+
+	input:focus,
+	textarea:focus {
+		outline: 2px solid var(--accent-bright);
+		outline-offset: 2px;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	.contact__disclaimer {
+		margin: 0;
+		font-size: 0.85rem;
+		color: var(--muted);
+	}
+
+	.footer {
+		margin: 4rem 0 2rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--line);
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		color: var(--muted);
+	}
+
+	.footer__top {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+
+	.footer__links {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.footer__links a {
+		color: var(--muted);
+		text-decoration: none;
+	}
+
+	.footer__links a:hover {
+		color: var(--accent);
+	}
+
+	.footer__credits {
+		width: 100%;
+		text-align: center;
+		font-size: 0.78rem;
+		margin: 0.5rem 0 0;
+		color: var(--muted);
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+
+	.footer__credits a {
+		color: var(--accent);
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.footer__credits a:hover {
+		text-decoration: underline;
+	}
+
+	.floating-actions {
+		position: fixed;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		z-index: 50;
+	}
+
+	.floating {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
+		text-decoration: none;
+		padding: 0.9rem 1.1rem;
+		border-radius: 1rem;
+		box-shadow: 0 20px 45px rgba(3, 15, 33, 0.2);
+		color: #fff;
+		font-weight: 600;
+	}
+
+	.floating span {
+		width: 2.2rem;
+		height: 2.2rem;
+		border-radius: 50%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	.floating svg {
+		width: 1.4rem;
+		height: 1.4rem;
+	}
+
+	.floating__icon {
+		background: #fff;
+	}
+
+	.floating__icon--whatsapp {
+		box-shadow: inset 0 0 0 2px #25d366;
+	}
+
+	.floating__icon--instagram {
+		box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+		background: transparent;
+	}
+
+	.floating--whatsapp {
+		background: linear-gradient(135deg, #25d366, #1ebe57);
+	}
+
+	.floating--instagram {
+		background: linear-gradient(135deg, #fcb045, #fd1d1d, #833ab4);
+		justify-content: center;
+		font-size: 1.2rem;
+	}
+
+	.floating--whatsapp p {
+		margin: 0;
+		font-size: 0.8rem;
+		color: rgba(255, 255, 255, 0.85);
+	}
+
+	.floating--whatsapp strong {
+		font-size: 0.95rem;
+		color: #fff;
+	}
+
+	@media (max-width: 900px) {
+		.site-nav {
+			flex-wrap: wrap;
+			border-radius: 1.25rem;
+		}
+
+		.nav__cta {
+			margin-left: 0;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.hero__actions {
+			flex-direction: column;
+		}
+	}
+</style>
