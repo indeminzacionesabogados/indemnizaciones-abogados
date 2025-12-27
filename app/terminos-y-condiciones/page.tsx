@@ -46,14 +46,14 @@ export default function TermsAndConditionsPage() {
           <div className="container space-y-6">
             <p className="text-sm font-semibold uppercase tracking-hero text-primary">Marco legal del sitio</p>
             <div className="max-w-4xl space-y-4">
-              <h1 id="terms-heading" className="text-4xl font-bold tracking-tight md:text-5xl">
+              <h1 id="terms-heading" className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                 Términos y Condiciones
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Los presentes términos y condiciones constituyen un acuerdo legal de forma vinculante celebrado entre usted y
                 nuestra firma con relación al acceso a la página web y a cualquier otro medio de comunicación que utilicemos.
               </p>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Usted acepta nuestros términos y condiciones al acceder a la página web y anexar sus datos personales para
                 realizar contacto con nosotros sobre su asesoría o trámite jurídico.
               </p>
@@ -64,14 +64,14 @@ export default function TermsAndConditionsPage() {
         <section className="py-16" aria-labelledby="scope-heading">
           <div className="container space-y-6">
             <div className="max-w-3xl space-y-4">
-              <h2 id="scope-heading" className="text-3xl font-semibold md:text-4xl">
+              <h2 id="scope-heading" className="text-2xl font-semibold md:text-4xl">
                 Alcance, aceptación y responsabilidad del usuario
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 La información proporcionada en la página web no está destinada a ser distribuida o utilizada por ninguna persona
                 o entidad en ninguna jurisdicción donde su uso sea contrario a la normativa que nos somete.
               </p>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 En consecuencia, las personas que decidan acceder y anexar sus datos personales lo hacen por iniciativa propia y
                 son las únicas responsables del cumplimiento de las leyes locales.
               </p>
@@ -94,10 +94,10 @@ export default function TermsAndConditionsPage() {
         <section className="bg-muted/20 py-16" aria-labelledby="guarantees-heading">
           <div className="container space-y-8">
             <div className="max-w-3xl space-y-4">
-              <h2 id="guarantees-heading" className="text-3xl font-semibold md:text-4xl">
+              <h2 id="guarantees-heading" className="text-2xl font-semibold md:text-4xl">
                 Garantías del usuario
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Para mantener un servicio íntegro y seguro, cada visitante declara lo siguiente al contactarnos por el sitio web.
               </p>
             </div>
@@ -115,10 +115,10 @@ export default function TermsAndConditionsPage() {
         <section className="py-16" aria-labelledby="prohibited-heading">
           <div className="container space-y-8">
             <div className="max-w-3xl space-y-4">
-              <h2 id="prohibited-heading" className="text-3xl font-semibold md:text-4xl">
+              <h2 id="prohibited-heading" className="text-2xl font-semibold md:text-4xl">
                 Actividades prohibidas
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Al utilizar nuestros servicios digitales, usted se compromete a no incurrir en ninguna de las siguientes
                 conductas, pues afectan la seguridad de la información y el correcto funcionamiento del despacho.
               </p>
@@ -136,15 +136,15 @@ export default function TermsAndConditionsPage() {
         <section className="bg-muted/30 py-16" aria-labelledby="changes-heading">
           <div className="container space-y-6">
             <div className="max-w-3xl space-y-4">
-              <h2 id="changes-heading" className="text-3xl font-semibold md:text-4xl">
+              <h2 id="changes-heading" className="text-2xl font-semibold md:text-4xl">
                 Actualizaciones y modificaciones
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. En caso de ajustes,
                 publicaremos la nueva versión con la fecha de actualización para que puedas revisarla antes de seguir usando el
                 sitio.
               </p>
-              <p className="text-base text-muted-foreground">
+              <p className="text-sm text-muted-foreground md:text-base">
                 El uso continuo de la página web después de la publicación de cambios constituye la aceptación expresa de los
                 nuevos términos.
               </p>

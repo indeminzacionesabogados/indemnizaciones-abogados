@@ -95,16 +95,16 @@ export default function DataPolicyPage() {
             <div className="max-w-4xl space-y-4">
               <h1
                 id="data-policy-heading"
-                className="text-4xl font-bold tracking-tight md:text-5xl"
+                className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
               >
                 Política de Tratamiento de Datos Personales
               </h1>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 La Ley de Protección de Datos Personales (Ley 1581 de 2012) reconoce y protege el derecho que tienen todas las
                 personas a conocer, actualizar y rectificar la información que se haya recogido sobre ellas en bases de datos o
                 archivos susceptibles de tratamiento por entidades públicas o privadas.
               </p>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Organización Jurídica Indeminzaciones Abogados se compromete a tratar los datos de los titulares de forma
                 absolutamente confidencial y a usarlos exclusivamente para las finalidades indicadas en esta política,
                 respetando lo definido en el literal G del artículo 3 de la ley 1581 de 2012.
@@ -116,10 +116,10 @@ export default function DataPolicyPage() {
         <section className="py-16" aria-labelledby="purposes-heading">
           <div className="container space-y-8">
             <div className="max-w-3xl space-y-4">
-              <h2 id="purposes-heading" className="text-3xl font-semibold md:text-4xl">
+              <h2 id="purposes-heading" className="text-2xl font-semibold md:text-4xl">
                 Finalidades autorizadas para el tratamiento
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Los datos personales solo serán utilizados para propósitos legítimos relacionados con los servicios jurídicos
                 que prestamos. Cada actividad cuenta con controles de confidencialidad, trazabilidad y acceso restringido.
               </p>
@@ -141,10 +141,10 @@ export default function DataPolicyPage() {
         <section className="bg-muted/30 py-16" aria-labelledby="rights-heading">
           <div className="container space-y-8">
             <div className="max-w-3xl space-y-4">
-              <h2 id="rights-heading" className="text-3xl font-semibold md:text-4xl">
+              <h2 id="rights-heading" className="text-2xl font-semibold md:text-4xl">
                 Derechos de los titulares y canales de atención
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 En cumplimiento de la ley 1581 de 2012, garantizamos que cada persona pueda ejercer sus derechos sobre los datos
                 almacenados. Ofrecemos canales digitales y presenciales para registrar consultas o reclamos.
               </p>
@@ -159,7 +159,7 @@ export default function DataPolicyPage() {
             </div>
             <div className="rounded-3xl border border-dashed border-border/70 bg-white/80 p-6 md:p-8">
               <h3 className="text-lg font-semibold text-foreground">Canales habilitados</h3>
-              <p className="mt-2 text-base text-muted-foreground">
+              <p className="mt-2 text-sm text-muted-foreground md:text-base">
                 Correo:{" "}
                 <a href="mailto:contacto@indeminzaciones.com" className="font-semibold text-primary underline">
                   contacto@indeminzaciones.com
@@ -182,10 +182,10 @@ export default function DataPolicyPage() {
         <section className="py-16" aria-labelledby="security-heading">
           <div className="container space-y-8">
             <div className="max-w-3xl space-y-4">
-              <h2 id="security-heading" className="text-3xl font-semibold md:text-4xl">
+              <h2 id="security-heading" className="text-2xl font-semibold md:text-4xl">
                 Medidas de seguridad y confidencialidad
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Custodiamos la información con criterios técnicos, administrativos y humanos alineados con los estándares del
                 sector legal. Todo el equipo conoce la obligación de confidencialidad profesional.
               </p>
@@ -206,10 +206,10 @@ export default function DataPolicyPage() {
         <section className="bg-muted/20 py-16" aria-labelledby="claims-heading">
           <div className="container space-y-8">
             <div className="max-w-3xl space-y-4">
-              <h2 id="claims-heading" className="text-3xl font-semibold md:text-4xl">
+              <h2 id="claims-heading" className="text-2xl font-semibold md:text-4xl">
                 Procedimiento para consultas y reclamos
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground md:text-lg">
                 Estos son los pasos para ejercer tus derechos de habeas data frente a Organización Jurídica Indeminzaciones
                 Abogados.
               </p>

@@ -31,10 +31,10 @@ export function MethodSection() {
       <div className="container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div className="space-y-4">
           <p className="text-sm font-semibold uppercase tracking-wide text-primary">Nuestro método</p>
-          <h2 id="method-heading" className="text-3xl font-semibold md:text-4xl">
+          <h2 id="method-heading" className="text-2xl font-semibold md:text-4xl">
             Protocolos claros, comunicación permanente y responsables designados por caso
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base text-muted-foreground md:text-lg">
             Cada cliente cuenta con un abogado líder y un médico consultor disponible por WhatsApp y correo para
             resolver dudas en cualquier momento.
           </p>

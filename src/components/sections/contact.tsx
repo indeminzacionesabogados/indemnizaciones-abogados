@@ -20,10 +20,10 @@ export function ContactSection() {
             <div className="relative space-y-6">
               <div className="space-y-3">
                 <p className="text-sm font-semibold uppercase tracking-section text-white/70">Información de contacto</p>
-                <h2 id="contact-heading" className="text-3xl font-semibold md:text-4xl">
+                <h2 id="contact-heading" className="text-2xl font-semibold md:text-4xl">
                   Cuéntanos tu caso y recibe una ruta clara para defender lo que te corresponde
                 </h2>
-                <p className="text-base text-white/80">
+                <p className="text-sm text-white/80 md:text-base">
                   Cobertura nacional en todo el territorio colombiano. Atendemos presencial, virtual o vía escrita. Respondemos
                   en menos de un día hábil con pasos concretos, tiempos estimados y escenarios de negociación.
                 </p>

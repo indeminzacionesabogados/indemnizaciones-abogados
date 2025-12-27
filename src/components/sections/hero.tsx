@@ -40,8 +40,8 @@ export function HeroSection() {
             className="object-cover opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#030f21]/95 via-[#030f21]/80 to-[#0f172a]/70" />
-          <div className="relative grid gap-6 p-8 md:p-12 lg:grid-cols-[1.1fr_0.9fr]">
-            <article className="relative overflow-hidden rounded-featured border border-border bg-white p-8 text-foreground shadow-card-strong md:p-10">
+          <div className="relative grid gap-6 p-6 sm:p-8 md:p-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <article className="relative overflow-hidden rounded-featured border border-border bg-white p-6 text-foreground shadow-card-strong sm:p-8 md:p-10">
               <Image
                 src="/logos/Indeminzaciones-abogados_logo_arbol_ocre.png"
                 alt=""
@@ -50,10 +50,10 @@ export function HeroSection() {
                 className="object-contain opacity-15"
               />
               <div className="relative flex flex-col gap-6">
-                <h1 id="hero-heading" className="text-4xl font-bold tracking-tight md:text-5xl">
+                <h1 id="hero-heading" className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-center">
                   Nos enfocamos en ofrecer soluciones jurídicas efectivas y personalizadas, respaldadas por un profundo conocimiento y compromiso con nuestros clientes.
                 </h1>
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex flex-col gap-2 text-base sm:flex-row sm:gap-3 sm:text-sm text-center">
                   <a
                     href={whatsappLink}
                     target="_blank"
@@ -75,7 +75,7 @@ export function HeroSection() {
                 </div>
               </div>
             </article>
-            <article className="flex flex-col justify-between rounded-featured border border-white/15 bg-white/5 p-8 text-white backdrop-blur md:p-10">
+            <article className="flex flex-col justify-between rounded-featured border border-white/15 bg-white/5 p-6 text-white backdrop-blur sm:p-8 md:p-10">
               <div className="space-y-6">
                 <div className="flex flex-wrap gap-2">
                   {practicePills.map((pill) => (

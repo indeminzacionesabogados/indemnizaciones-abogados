@@ -36,15 +36,27 @@ export function AboutSection() {
   return (
     <section id="confianza" className="bg-muted/30 py-16" aria-labelledby="about-heading">
       <div className="container space-y-10">
-        <div className="max-w-3xl space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">Quienes somos</p>
-          <h2 id="about-heading" className="text-3xl font-semibold md:text-4xl">
-            Socios que lideran cada caso con presencia directa en juzgados y mesas de negociación
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Juan Carlos Benitez Mosquera y Carlos Andrés Lopez Soto fundaron la firma tras años de representar a instituciones
-            aseguradoras y clientes particulares. Su enfoque combina litigio estratégico con acompañamiento humano permanente.
-          </p>
+        <div className="space-y-8">
+          <div className="max-w-3xl space-y-4">
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">Quienes somos</p>
+            <h2 id="about-heading" className="text-2xl font-semibold md:text-4xl">
+              Socios que lideran cada caso con presencia directa en juzgados y mesas de negociación
+            </h2>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            <p className="text-base text-muted-foreground md:text-lg">
+              Juan Carlos Benitez Mosquera y Carlos Andrés Lopez Soto fundaron la firma tras años de representar a instituciones
+              aseguradoras y clientes particulares. Su enfoque combina litigio estratégico con acompañamiento humano permanente.
+            </p>
+            <ul className="grid content-start gap-2 pt-1">
+              {credentials.map((credential) => (
+                <li key={credential} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <span>{credential}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {partners.map((partner) => (
@@ -66,16 +78,7 @@ export function AboutSection() {
             </article>
           ))}
         </div>
-        <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-white/95 via-white/80 to-transparent p-8 shadow-card-soft">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(200,160,51,0.15),transparent_60%)]" />
-          <div className="relative grid gap-6 text-sm text-muted-foreground md:grid-cols-2">
-            {credentials.map((credential) => (
-              <div key={credential} className="rounded-2xl border border-border/50 bg-white/70 p-4 shadow-sm">
-                {credential}
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );

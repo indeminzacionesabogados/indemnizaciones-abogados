@@ -125,83 +125,86 @@ const areas: PracticeArea[] = [
 ];
 
 export function PracticeAreasSection() {
-  const [activeArea, setActiveArea] = useState<PracticeArea>(areas[0]);
+  const [openId, setOpenId] = useState<string | null>(areas[0].id);
 
   return (
     <section id="servicios" className="bg-muted/40 py-16" aria-labelledby="areas-heading">
       <div className="container space-y-10">
         <div className="max-w-3xl space-y-4">
           <p className="text-sm font-semibold uppercase tracking-wide text-primary">Áreas de práctica</p>
-          <h2 id="areas-heading" className="text-3xl font-semibold md:text-4xl">
-            Experiencias inmersivas para entender cada caso antes de litigar
+          <h2 id="areas-heading" className="text-2xl font-semibold md:text-4xl">
+            Conoce cada frente legal antes de iniciar tu estrategia
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Selecciona el escenario que más se acerca a tu situación. Cada imagen representa un frente en el que contamos con
-            especialistas listos para activar estrategias legales, médicas y financieras.
+          <p className="text-base text-muted-foreground md:text-lg">
+            Despliega cada especialidad para ver el acompañamiento, los pasos clave y los escenarios habituales que atendemos.
           </p>
         </div>
-        <div className="grid gap-8 lg:grid-cols-[0.6fr_0.4fr]">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {areas.map((area) => (
-              <button
-                key={area.id}
-                type="button"
-                onClick={() => setActiveArea(area)}
-                aria-pressed={activeArea.id === area.id}
-                className={cn(
-                  "group relative overflow-hidden rounded-3xl border border-border/60 text-left shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2",
-                  activeArea.id === area.id ? "ring-2 ring-offset-2 ring-primary/50" : "hover:-translate-y-1"
-                )}
-              >
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={area.image}
-                    alt=""
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/60 opacity-80" />
-                  <div className="absolute inset-0 flex flex-col justify-between p-5 text-white">
-                    <p className="text-xs font-semibold uppercase tracking-section text-white/70">Explorar</p>
-                    <p className="text-xl font-semibold leading-tight">{area.title}</p>
+        <div className="space-y-4">
+          {areas.map((area) => {
+            const isOpen = openId === area.id;
+            return (
+              <article key={area.id} className="rounded-3xl border border-border bg-white shadow-card-soft">
+                <button
+                  type="button"
+                  onClick={() => setOpenId(isOpen ? null : area.id)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between gap-4 rounded-3xl px-6 py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="relative h-16 w-16 overflow-hidden rounded-2xl bg-muted">
+                      <Image src={area.image} alt="" fill className="object-cover" sizes="64px" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Área prioritaria</p>
+                      <h3 className="text-xl font-semibold">{area.title}</h3>
+                    </div>
                   </div>
-                </div>
-              </button>
-            ))}
-          </div>
-          <article className="card-surface flex h-full flex-col rounded-3xl border border-border p-6 sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">Área seleccionada</p>
-            <h3 className="mt-2 text-2xl font-semibold text-foreground">{activeArea.title}</h3>
-            <p className="mt-3 text-base text-muted-foreground">{activeArea.description}</p>
-            {activeArea.detail && <p className="mt-3 text-sm text-muted-foreground">{activeArea.detail}</p>}
-            <div className="mt-6">
-              <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                {activeArea.supportTitle}
-              </p>
-              <ul className="mt-3 space-y-2 text-sm text-foreground/90">
-                {activeArea.supportItems.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {activeArea.cases && activeArea.cases.length > 0 && (
-              <div className="mt-6 rounded-2xl bg-muted/70 p-4">
-                <p className="text-sm font-semibold text-muted-foreground">{activeArea.casesTitle}</p>
-                <ul className="mt-2 space-y-1 text-sm text-foreground/80">
-                  {activeArea.cases.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </article>
+                  <span
+                    className={cn(
+                      "h-10 w-10 rounded-full border text-xl font-bold",
+                      isOpen ? "border-primary text-primary" : "border-border text-primary"
+                    )}
+                  >
+                    <span className="inline-flex h-full w-full items-center justify-center">{isOpen ? "−" : "+"}</span>
+                  </span>
+                </button>
+                {isOpen && (
+                  <div className="space-y-6 border-t border-border/60 p-6 text-sm text-muted-foreground">
+                    <p className="text-base text-foreground">{area.description}</p>
+                    {area.detail && <p>{area.detail}</p>}
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        {area.supportTitle}
+                      </p>
+                      <ul className="mt-2 space-y-2 text-foreground">
+                        {area.supportItems.map((item) => (
+                          <li key={item} className="flex gap-2">
+                            <span className="mt-1 h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    {area.cases && area.cases.length > 0 && (
+                      <div className="rounded-2xl bg-muted/70 p-4">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                          {area.casesTitle}
+                        </p>
+                        <ul className="mt-2 space-y-1 text-foreground">
+                          {area.cases.map((item) => (
+                            <li key={item} className="flex gap-2">
+                              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

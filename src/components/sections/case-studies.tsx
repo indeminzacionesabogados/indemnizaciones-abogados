@@ -132,10 +132,10 @@ export function CaseStudiesSection() {
       <div className="container space-y-10">
         <div className="max-w-2xl space-y-2">
           <p className="text-sm font-semibold uppercase tracking-wide text-primary">Casos de éxito</p>
-          <h2 id="case-heading" className="text-3xl font-semibold md:text-4xl">
+          <h2 id="case-heading" className="text-2xl font-semibold md:text-4xl">
             Testimonios que respaldan indemnizaciones reales
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base text-muted-foreground md:text-lg">
             Cada historia es pública en Instagram. Haz clic para conocer el contexto completo y validar cómo operamos cada
             reclamación.
           </p>
@@ -190,7 +190,7 @@ export function CaseStudiesSection() {
                       <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                         {testimonial.case}
                       </p>
-                      <p className="mt-4 text-lg text-foreground">{testimonial.quote}</p>
+                      <p className="mt-4 text-base text-foreground md:text-lg">{testimonial.quote}</p>
                     </div>
                     <div className="mt-6">
                       <p className="text-base font-semibold">{testimonial.name}</p>
