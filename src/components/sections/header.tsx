@@ -24,19 +24,23 @@ export function SiteHeader() {
         <Link href="#inicio" className="flex flex-1 items-center gap-3" onClick={closeMenu}>
           <Image
             src="/logos/Indeminzaciones-abogados_logo_arbol_ocre_texto.png"
-            alt="Indeminzaciones Abogados logotipo"
-            width={150}
+            alt="Organización Jurídica Indemnizaciones Abogados"
+            width={130}
             height={40}
             priority
             className="h-10 w-auto"
           />
-          <div className="hidden text-left leading-tight sm:block">
-            <p className="text-sm font-semibold text-foreground">Indeminzaciones Abogados</p>
-            <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Civil · Seguros · Médico</p>
+          <div className="text-left leading-tight">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+              Organización jurídica
+            </p>
+            <p className="text-lg font-semibold tracking-wide text-foreground">
+              Indemnizaciones Abogados
+            </p>
           </div>
         </Link>
 
-        <div className="hidden items-center rounded-full border border-border/70 bg-surface px-6 py-2 text-sm font-semibold text-muted-foreground shadow-[0_15px_40px_rgba(3,15,33,0.08)] lg:flex">
+        <div className="hidden items-center rounded-full border border-border/70 bg-surface px-6 py-2 text-sm font-semibold text-muted-foreground shadow-card-soft lg:flex">
           <nav aria-label="Menú principal" className="flex items-center gap-5">
             {navItems.map((item) => (
               <Link
@@ -69,7 +73,7 @@ export function SiteHeader() {
         aria-hidden={!isMenuOpen}
         className={cn(
           "lg:hidden overflow-hidden transition-[max-height,opacity] duration-200",
-          isMenuOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"
+          isMenuOpen ? "max-h-mobile-menu opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <div className="border-t border-border/50 bg-background px-5 pb-6 pt-4 shadow-lg">
@@ -88,7 +92,7 @@ export function SiteHeader() {
           <Link
             href="#contacto"
             onClick={closeMenu}
-            className="mt-4 flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#c8a033,#f9d423)] px-4 py-3 text-base font-semibold text-foreground shadow-[0_16px_35px_rgba(200,160,51,0.4)] transition hover:brightness-110"
+            className="mt-4 flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#c8a033,#f9d423)] px-4 py-3 text-base font-semibold text-foreground shadow-cta-primary transition hover:brightness-110"
           >
             <PhoneCall className="mr-2 h-5 w-5" aria-hidden="true" />
             Hablemos ahora

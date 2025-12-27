@@ -163,7 +163,7 @@ export function PracticeAreasSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/60 opacity-80" />
                   <div className="absolute inset-0 flex flex-col justify-between p-5 text-white">
-                    <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/70">Explorar</p>
+                    <p className="text-xs font-semibold uppercase tracking-section text-white/70">Explorar</p>
                     <p className="text-xl font-semibold leading-tight">{area.title}</p>
                   </div>
                 </div>

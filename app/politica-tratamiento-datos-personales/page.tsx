@@ -89,7 +89,7 @@ export default function DataPolicyPage() {
           aria-labelledby="data-policy-heading"
         >
           <div className="container space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-primary">
+            <p className="text-sm font-semibold uppercase tracking-hero text-primary">
               Protección de información personal
             </p>
             <div className="max-w-4xl space-y-4">

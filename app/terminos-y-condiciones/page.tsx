@@ -44,7 +44,7 @@ export default function TermsAndConditionsPage() {
       <main className="bg-background">
         <section className="bg-muted/40 py-16 md:py-20" aria-labelledby="terms-heading">
           <div className="container space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-primary">Marco legal del sitio</p>
+            <p className="text-sm font-semibold uppercase tracking-hero text-primary">Marco legal del sitio</p>
             <div className="max-w-4xl space-y-4">
               <h1 id="terms-heading" className="text-4xl font-bold tracking-tight md:text-5xl">
                 Términos y Condiciones

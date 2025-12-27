@@ -7,19 +7,19 @@ const whatsappLink =
 export function ContactSection() {
   return (
     <section id="contacto" className="bg-muted/40 py-16" aria-labelledby="contact-heading">
-      <div className="container rounded-[2.5rem] border border-border/80 bg-white/90 p-6 shadow-[0_30px_60px_rgba(3,15,33,0.15)] md:p-12">
+      <div className="container rounded-section border border-border/80 bg-white/90 p-6 shadow-sheet md:p-12">
         <div className="grid gap-8 lg:grid-cols-[0.55fr_0.45fr]">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#06142e] via-[#0b1c38] to-[#0d1d3b] p-6 text-white md:p-10">
             <Image
               src="/logos/Indeminzaciones-abogados_logo_arbol_dorad0.png"
               alt="Símbolo del despacho"
               fill
-              className="object-contain opacity-15"
+              className="object-contain opacity-20"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="relative space-y-6">
               <div className="space-y-3">
-                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">Información de contacto</p>
+                <p className="text-sm font-semibold uppercase tracking-section text-white/70">Información de contacto</p>
                 <h2 id="contact-heading" className="text-3xl font-semibold md:text-4xl">
                   Cuéntanos tu caso y recibe una ruta clara para defender lo que te corresponde
                 </h2>
@@ -144,7 +144,10 @@ export function ContactSection() {
                 Acepto el aviso de privacidad y autorizo el tratamiento confidencial de mis datos para recibir asesoría legal.
               </label>
             </div>
-            <Button type="submit" className="w-full rounded-2xl bg-[linear-gradient(135deg,#c8a033,#f9d423)] text-foreground shadow-[0_20px_40px_rgba(200,160,51,0.35)]">
+            <Button
+              type="submit"
+              className="w-full rounded-2xl bg-[linear-gradient(135deg,#c8a033,#f9d423)] text-foreground shadow-cta-primary"
+            >
               Enviar y recibir asesoría
             </Button>
             <p className="text-xs text-muted-foreground">

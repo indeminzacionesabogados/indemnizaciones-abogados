@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/src/lib/utils";
@@ -40,41 +40,91 @@ const AUTO_PLAY_INTERVAL = 5000;
 
 export function CaseStudiesSection() {
   const [index, setIndex] = useState(0);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const memoTestimonials = useMemo(() => testimonials, []);
-  const isAutoPlayStopped = useRef(false);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  const moveTo = (direction: "next" | "prev") => {
+  const maxIndex = Math.max(testimonials.length - slidesPerView, 0);
+  const slideWidth = 100 / slidesPerView;
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window === "undefined") {
+        return;
+      }
+      if (window.innerWidth >= 1024) {
+        setSlidesPerView(3);
+        return;
+      }
+      if (window.innerWidth >= 768) {
+        setSlidesPerView(2);
+        return;
+      }
+      setSlidesPerView(1);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+    const handleMediaChange = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches);
+    };
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleMediaChange);
+      return () => mediaQuery.removeEventListener("change", handleMediaChange);
+    }
+    mediaQuery.addListener(handleMediaChange);
+    return () => mediaQuery.removeListener(handleMediaChange);
+  }, []);
+
+  useEffect(() => {
+    setIndex((prev) => Math.min(prev, maxIndex));
+  }, [maxIndex]);
+
+  useEffect(() => {
+    if (prefersReducedMotion || isPaused || maxIndex === 0) {
+      return undefined;
+    }
+    const intervalId = setInterval(() => {
+      setIndex((prev) => (prev === maxIndex ? 0 : prev + 1));
+    }, AUTO_PLAY_INTERVAL);
+    return () => clearInterval(intervalId);
+  }, [prefersReducedMotion, isPaused, maxIndex]);
+
+  const pauseAutoPlay = () => {
+    setIsPaused(true);
+  };
+
+  const resumeAutoPlay = () => {
+    if (!prefersReducedMotion) {
+      setIsPaused(false);
+    }
+  };
+
+  const handleManualNav = (direction: "next" | "prev") => {
+    if (maxIndex === 0) {
+      return;
+    }
+    pauseAutoPlay();
     setIndex((prev) => {
       if (direction === "next") {
-        return prev === memoTestimonials.length - 1 ? 0 : prev + 1;
+        return prev === maxIndex ? 0 : prev + 1;
       }
-      return prev === 0 ? memoTestimonials.length - 1 : prev - 1;
+      return prev === 0 ? maxIndex : prev - 1;
     });
   };
 
-  useEffect(() => {
-    if (isAutoPlayStopped.current) {
-      return;
-    }
-
-    timeoutRef.current = setTimeout(() => {
-      setIndex((prev) => (prev === memoTestimonials.length - 1 ? 0 : prev + 1));
-    }, AUTO_PLAY_INTERVAL);
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [index, memoTestimonials.length]);
-
-  const handleManualNav = (direction: "next" | "prev") => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    isAutoPlayStopped.current = true;
-    moveTo(direction);
+  const handleIndicatorClick = (indicatorIndex: number) => {
+    pauseAutoPlay();
+    setIndex(indicatorIndex);
   };
 
   return (
@@ -90,7 +140,17 @@ export function CaseStudiesSection() {
             reclamación.
           </p>
         </div>
-        <div className="relative overflow-hidden">
+        <div
+          className="relative"
+          role="region"
+          aria-roledescription="Carrusel de testimonios"
+          aria-live={isPaused || prefersReducedMotion ? "polite" : "off"}
+          aria-label="Testimonios reales de clientes"
+          onMouseEnter={pauseAutoPlay}
+          onMouseLeave={resumeAutoPlay}
+          onFocus={pauseAutoPlay}
+          onBlur={resumeAutoPlay}
+        >
           <button
             type="button"
             onClick={() => handleManualNav("prev")}
@@ -109,43 +169,20 @@ export function CaseStudiesSection() {
           </button>
           <div className="overflow-hidden">
             <div
-              className="flex gap-6 transition-transform duration-500"
-              style={{ transform: `translateX(-${index * (100 / 3)}%)` }}
+              className="flex -mx-2 sm:-mx-3 lg:-mx-4 transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${index * slideWidth}%)` }}
             >
-              {memoTestimonials.map((testimonial) => (
+              {testimonials.map((testimonial) => (
                 <Link
                   key={testimonial.name}
                   href={testimonial.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full flex-shrink-0 items-stretch md:w-1/2 lg:w-1/3"
+                  aria-label={`Abrir testimonio de ${testimonial.name} en Instagram`}
+                  style={{ flexBasis: `${slideWidth}%` }}
+                  className="flex h-full flex-shrink-0 px-2 sm:px-3 lg:px-4"
                 >
-                  <article className="card-surface flex w-full flex-col justify-between rounded-3xl border border-border p-6 text-left shadow-lg transition hover:-translate-y-1">
-                    <div>
-                      <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                        <Quote className="h-6 w-6" />
-                      </span>
-                      <p className="mt-4 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                        {testimonial.case}
-                      </p>
-                      <p className="mt-4 text-lg text-foreground">{testimonial.quote}</p>
-                    </div>
-                    <div className="mt-6">
-                      <p className="text-base font-semibold">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">Consulta verificada en Instagram</p>
-                    </div>
-                  </article>
-                </Link>
-              ))}
-              {memoTestimonials.map((testimonial) => (
-                <Link
-                  key={`${testimonial.name}-clone`}
-                  href={testimonial.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden w-full flex-shrink-0 items-stretch md:flex md:w-1/2 lg:w-1/3"
-                >
-                  <article className="card-surface flex w-full flex-col justify-between rounded-3xl border border-border p-6 text-left shadow-lg">
+                  <article className="card-surface flex w-full flex-col justify-between rounded-3xl border border-border p-6 text-left shadow-card-strong transition hover:-translate-y-1">
                     <div>
                       <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <Quote className="h-6 w-6" />
@@ -165,16 +202,17 @@ export function CaseStudiesSection() {
             </div>
           </div>
           <div className="mt-6 flex justify-center gap-2">
-            {memoTestimonials.map((_, indicatorIndex) => (
+            {Array.from({ length: maxIndex + 1 }).map((_, indicatorIndex) => (
               <button
                 key={`indicator-${indicatorIndex}`}
                 type="button"
-                onClick={() => setIndex(indicatorIndex)}
+                onClick={() => handleIndicatorClick(indicatorIndex)}
                 aria-label={`Ir al caso ${indicatorIndex + 1}`}
                 className={cn(
                   "h-2 w-8 rounded-full transition",
                   index === indicatorIndex ? "bg-primary" : "bg-border"
                 )}
+                aria-current={index === indicatorIndex}
               />
             ))}
           </div>

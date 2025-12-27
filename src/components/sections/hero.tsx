@@ -29,7 +29,7 @@ export function HeroSection() {
   return (
     <section id="inicio" className="py-12 md:py-16" aria-labelledby="hero-heading">
       <div className="container">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-primary/40 bg-[#030f21] shadow-[0_40px_80px_rgba(3,15,33,0.45)]">
+        <div className="relative overflow-hidden rounded-section border border-primary/40 bg-[#030f21] shadow-hero">
           <Image
             src="/hero-justice.svg"
             alt=""
@@ -41,50 +41,42 @@ export function HeroSection() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#030f21]/95 via-[#030f21]/80 to-[#0f172a]/70" />
           <div className="relative grid gap-6 p-8 md:p-12 lg:grid-cols-[1.1fr_0.9fr]">
-            <article className="relative overflow-hidden rounded-[30px] border border-border bg-white p-6 text-foreground shadow-[0_20px_45px_rgba(3,15,33,0.3)] md:p-8">
+            <article className="relative overflow-hidden rounded-featured border border-border bg-white p-8 text-foreground shadow-card-strong md:p-10">
               <Image
                 src="/logos/Indeminzaciones-abogados_logo_arbol_ocre.png"
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100vw, 80vw"
-                className="object-contain opacity-35"
-                priority
+                className="object-contain opacity-15"
               />
-              <div className="relative space-y-0">
-                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-muted-foreground">
-                  Despacho en responsabilidad civil y seguros
-                </p>
-                <h1 id="hero-heading" className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-                  Somos el equipo legal que convierte incidentes críticos en resultados reales
+              <div className="relative flex flex-col gap-6">
+                <h1 id="hero-heading" className="text-4xl font-bold tracking-tight md:text-5xl">
+                  Nos enfocamos en ofrecer soluciones jurídicas efectivas y personalizadas, respaldadas por un profundo conocimiento y compromiso con nuestros clientes.
                 </h1>
-                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                  Enfocados en responsabilidad civil y seguros, acompañamos a familias e instituciones médicas con estrategias
-                  personalizadas, peritaje propio y control total del proceso para recuperar lo que les corresponde.
-                </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <div className="flex flex-col gap-3 sm:flex-row">
                   <a
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#25d366,#1ebe57)] px-8 py-3 text-base font-semibold text-white shadow-[0_18px_35px_rgba(30,190,87,0.35)] transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                    className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#25d366,#1ebe57)] px-8 py-3 text-base font-semibold text-white shadow-cta-accent transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
                   >
                     <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                     Agenda por WhatsApp
                   </a>
                   <Link
                     href="#contacto"
-                    className="inline-flex items-center justify-center rounded-full border border-border px-8 py-3 text-base font-semibold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    className="inline-flex items-center justify-center rounded-full border border-transparent bg-[linear-gradient(135deg,#c8a033,#f9d423)] px-8 py-3 text-base font-semibold text-foreground shadow-cta-primary transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
                     Solicitar evaluación de caso
                   </Link>
                 </div>
-                <div className="mt-8 rounded-2xl bg-muted/60 p-4 text-sm text-muted-foreground">
+                <div className="rounded-2xl bg-muted/60 p-4 text-sm text-muted-foreground">
                   Compartimos tableros de seguimiento, minutas y responsables por cada etapa. Respuesta inicial menor a 2 horas hábiles.
                 </div>
               </div>
             </article>
-            <article className="flex flex-col justify-between rounded-[30px] border border-white/15 bg-white/5 p-6 text-white backdrop-blur md:p-8">
-              <div>
+            <article className="flex flex-col justify-between rounded-featured border border-white/15 bg-white/5 p-8 text-white backdrop-blur md:p-10">
+              <div className="space-y-6">
                 <div className="flex flex-wrap gap-2">
                   {practicePills.map((pill) => (
                     <span key={pill} className="rounded-full border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/90">
@@ -92,7 +84,7 @@ export function HeroSection() {
                     </span>
                   ))}
                 </div>
-                <ul className="mt-6 space-y-4 text-sm">
+                <ul className="space-y-4 text-sm">
                   {highlights.map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <span className="mt-1 rounded-full bg-white/10 p-1 text-accent-foreground">

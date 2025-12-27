@@ -37,6 +37,8 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        section: "2.5rem",
+        featured: "1.875rem",
       },
       container: {
         center: true,
@@ -45,8 +47,24 @@ const config: Config = {
           md: "1.5rem",
         },
       },
+      letterSpacing: {
+        hero: "0.35em",
+        section: "0.4em",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+      },
+      maxHeight: {
+        "mobile-menu": "520px",
+      },
+      boxShadow: {
+        hero: "0 40px 80px rgba(3,15,33,0.45)",
+        "card-strong": "0 20px 45px rgba(3,15,33,0.3)",
+        "card-soft": "0 18px 40px rgba(3,15,33,0.08)",
+        "cta-primary": "0 16px 35px rgba(200,160,51,0.4)",
+        "cta-accent": "0 18px 35px rgba(30,190,87,0.35)",
+        "cta-secondary": "0 20px 40px rgba(131,58,180,0.35)",
+        "sheet": "0 30px 60px rgba(3,15,33,0.15)",
       },
     },
   },

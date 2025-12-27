@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-border bg-background py-10 text-sm text-muted-foreground" aria-label="Pie de página">
       <div className="container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div className="space-y-2">
-          <p className="text-lg font-semibold uppercase tracking-[0.4em] text-foreground">Indeminzaciones abogados</p>
+          <p className="text-lg font-semibold uppercase tracking-section text-foreground">Indeminzaciones abogados</p>
           <p className="text-base text-foreground">© {currentYear} Todos los derechos reservados.</p>
         </div>
         <div className="flex flex-col items-start gap-2 text-right md:items-end">

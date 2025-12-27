@@ -66,7 +66,7 @@ export function AboutSection() {
             </article>
           ))}
         </div>
-        <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-white/95 via-white/80 to-transparent p-8 shadow-[0_20px_40px_rgba(3,15,33,0.12)]">
+        <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-white/95 via-white/80 to-transparent p-8 shadow-card-soft">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(200,160,51,0.15),transparent_60%)]" />
           <div className="relative grid gap-6 text-sm text-muted-foreground md:grid-cols-2">
             {credentials.map((credential) => (
