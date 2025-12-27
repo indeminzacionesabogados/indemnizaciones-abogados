@@ -1,0 +1,25 @@
+<svg width="640" height="760" viewBox="0 0 640 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de un equipo legal revisando documentos">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E3ECF6" />
+      <stop offset="100%" stop-color="#C9D5E8" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1D2A44" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="760" rx="40" fill="url(#bg)" />
+  <rect x="60" y="120" width="520" height="400" rx="32" fill="#fff" opacity="0.9" />
+  <rect x="100" y="170" width="440" height="24" rx="12" fill="#0F172A" opacity="0.1" />
+  <rect x="100" y="214" width="320" height="18" rx="9" fill="#0F172A" opacity="0.16" />
+  <rect x="100" y="250" width="360" height="18" rx="9" fill="#0F172A" opacity="0.12" />
+  <rect x="100" y="286" width="390" height="18" rx="9" fill="#0F172A" opacity="0.12" />
+  <circle cx="180" cy="520" r="70" fill="#fff" opacity="0.9" />
+  <circle cx="460" cy="540" r="90" fill="#fff" opacity="0.85" />
+  <path d="M150 520 C150 470 210 470 210 520 V580 H150 Z" fill="url(#accent)" opacity="0.9" />
+  <path d="M420 540 C420 470 500 470 500 540 V620 H420 Z" fill="#1B365D" opacity="0.85" />
+  <rect x="120" y="626" width="400" height="80" rx="20" fill="#0F172A" opacity="0.8" />
+  <text x="320" y="676" text-anchor="middle" font-family="'Inter', 'Segoe UI', sans-serif" font-size="36" fill="#F8FAFC">Indeminzaciones</text>
+  <text x="320" y="712" text-anchor="middle" font-family="'Inter', 'Segoe UI', sans-serif" font-size="20" fill="#CBD5F5">Abogados</text>
+</svg>
