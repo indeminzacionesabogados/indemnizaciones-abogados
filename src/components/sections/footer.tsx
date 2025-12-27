@@ -12,10 +12,10 @@ export function Footer() {
         </div>
         <div className="flex flex-col items-start gap-2 text-right md:items-end">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-8">
-            <Link href="/politica-tratamiento-datos" className="hover:text-foreground">
+            <Link href="/politica-tratamiento-datos-personales" className="hover:text-foreground">
               Política de tratamiento de datos personales
             </Link>
-            <Link href="/terminos-condiciones" className="hover:text-foreground">
+            <Link href="/terminos-y-condiciones" className="hover:text-foreground">
               Términos y condiciones
             </Link>
           </div>

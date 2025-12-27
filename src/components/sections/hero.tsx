@@ -41,36 +41,46 @@ export function HeroSection() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-[#030f21]/95 via-[#030f21]/80 to-[#0f172a]/70" />
           <div className="relative grid gap-6 p-8 md:p-12 lg:grid-cols-[1.1fr_0.9fr]">
-            <article className="rounded-[30px] bg-white/95 p-6 text-foreground shadow-[0_20px_45px_rgba(3,15,33,0.3)] md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-muted-foreground">
-                Despacho en responsabilidad civil y seguros
-              </p>
-              <h1 id="hero-heading" className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-                Somos el equipo legal que convierte incidentes críticos en resultados reales
-              </h1>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                Enfocados en responsabilidad civil y seguros, acompañamos a familias e instituciones médicas con estrategias
-                personalizadas, peritaje propio y control total del proceso para recuperar lo que les corresponde.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#25d366,#1ebe57)] px-8 py-3 text-base font-semibold text-white shadow-[0_18px_35px_rgba(30,190,87,0.35)] transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
-                  Agenda por WhatsApp
-                </a>
-                <Link
-                  href="#contacto"
-                  className="inline-flex items-center justify-center rounded-full border border-border px-8 py-3 text-base font-semibold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                  Solicitar evaluación de caso
-                </Link>
-              </div>
-              <div className="mt-8 rounded-2xl bg-muted/60 p-4 text-sm text-muted-foreground">
-                Compartimos tableros de seguimiento, minutas y responsables por cada etapa. Respuesta inicial menor a 2 horas hábiles.
+            <article className="relative overflow-hidden rounded-[30px] border border-border bg-white p-6 text-foreground shadow-[0_20px_45px_rgba(3,15,33,0.3)] md:p-8">
+              <Image
+                src="/logos/Indeminzaciones-abogados_logo_arbol_ocre.png"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 80vw"
+                className="object-contain opacity-35"
+                priority
+              />
+              <div className="relative space-y-0">
+                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-muted-foreground">
+                  Despacho en responsabilidad civil y seguros
+                </p>
+                <h1 id="hero-heading" className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+                  Somos el equipo legal que convierte incidentes críticos en resultados reales
+                </h1>
+                <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                  Enfocados en responsabilidad civil y seguros, acompañamos a familias e instituciones médicas con estrategias
+                  personalizadas, peritaje propio y control total del proceso para recuperar lo que les corresponde.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,#25d366,#1ebe57)] px-8 py-3 text-base font-semibold text-white shadow-[0_18px_35px_rgba(30,190,87,0.35)] transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+                    Agenda por WhatsApp
+                  </a>
+                  <Link
+                    href="#contacto"
+                    className="inline-flex items-center justify-center rounded-full border border-border px-8 py-3 text-base font-semibold text-foreground transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    Solicitar evaluación de caso
+                  </Link>
+                </div>
+                <div className="mt-8 rounded-2xl bg-muted/60 p-4 text-sm text-muted-foreground">
+                  Compartimos tableros de seguimiento, minutas y responsables por cada etapa. Respuesta inicial menor a 2 horas hábiles.
+                </div>
               </div>
             </article>
             <article className="flex flex-col justify-between rounded-[30px] border border-white/15 bg-white/5 p-6 text-white backdrop-blur md:p-8">
