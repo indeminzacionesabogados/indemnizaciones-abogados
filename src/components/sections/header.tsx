@@ -21,7 +21,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/50 bg-background/90 backdrop-blur-xl">
       <div className="container flex items-center justify-between gap-3 py-3 md:py-4">
-        <Link href="#inicio" className="flex flex-1 items-center gap-3" onClick={closeMenu}>
+        <Link href="/" className="flex flex-1 items-center gap-3" onClick={closeMenu}>
           <Image
             src="/logos/Indeminzaciones-abogados_logo_arbol_ocre_texto.png"
             alt="Organización Jurídica Indemnizaciones Abogados"

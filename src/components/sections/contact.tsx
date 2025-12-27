@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@/src/components/ui/button";
 
 const whatsappLink =
-  "https://wa.me/573052566811?text=Hola,%20necesito%20asesor%C3%ADa%20legal%20sobre%20responsabilidad%20civil";
+  "https://wa.me/573052566811?text=Hola,%20necesito%20asesor%C3%ADa%20legal%20sobre%20indemnizaciones";
 
 export function ContactSection() {
   return (

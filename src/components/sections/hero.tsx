@@ -2,28 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, MessageCircle } from "lucide-react";
 
-const highlights = [
-  "Valoración médica-legal respaldada por peritos certificados",
-  "Negociación directa con aseguradoras y hospitales",
-  "Estrategias de litigio enfocadas en maximizar indemnizaciones",
-];
-
-const practicePills = [
-  "Responsabilidad civil y del Estado",
-  "Seguros y cumplimiento",
-  "Derecho médico",
-  "Accidentes laborales",
-];
-
-const practiceAreas = [
-  { label: "Responsabilidad civil y del Estado", href: "#servicios" },
-  { label: "Derecho de seguros y cumplimiento", href: "#servicios" },
-  { label: "Derecho médico y mala praxis", href: "#servicios" },
-  { label: "Accidentes laborales y pensiones", href: "#servicios" },
+const practiceHighlights = [
+  {
+    cases: [
+      "Trámite contravencional y audiencias prejudiciales",
+      "Reclamaciones ante compañías aseguradoras",
+      "Mal estado de vías y señalización deficiente",
+      "Falla en la prestación del servicio de salud",
+      "Auditoría de pólizas y exclusiones",
+      "Defensa y reclamación ante aseguradoras",
+      "Revisión de tratamientos y protocolos autorizados",
+      "Culpa patronal y fallas en el sistema de gestión de seguridad",
+      "Reclamaciones de indemnización ante la ARL",
+      "Procesos por enfermedad laboral",
+    ],
+  },
 ];
 
 const whatsappLink =
-  "https://wa.me/5215512345678?text=Hola,%20necesito%20asesor%C3%ADa%20legal%20sobre%20una%20indemnizaci%C3%B3n";
+  "https://wa.me/573052566811?text=Hola,%20necesito%20asesor%C3%ADa%20legal%20sobre%20indemnizaciones";
 
 export function HeroSection() {
   return (
@@ -75,35 +72,25 @@ export function HeroSection() {
                 </div>
               </div>
             </article>
-            <article className="flex flex-col justify-between rounded-featured border border-white/15 bg-white/5 p-6 text-white backdrop-blur sm:p-8 md:p-10">
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-2">
-                  {practicePills.map((pill) => (
-                    <span key={pill} className="rounded-full border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/90">
-                      {pill}
-                    </span>
-                  ))}
-                </div>
-                <ul className="space-y-4 text-sm">
-                  {highlights.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-1 rounded-full bg-white/10 p-1 text-accent-foreground">
-                        <Check className="h-4 w-4 text-accent" aria-hidden="true" />
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+            <article className="flex flex-col rounded-featured border border-white/15 bg-white/5 p-6 text-white backdrop-blur sm:p-8 md:p-10">
+              <div className="space-y-4">
+                <h2 className="text-2xl font-semibold text-white">
+                  Casos frecuentes que atendemos a diario
+                </h2>
               </div>
-              <div className="mt-6 rounded-2xl border border-white/15 bg-black/20 p-4 text-sm text-white/80">
-                Actualizamos a socios, hospitales y aseguradoras en tiempo real. Selecciona tu área prioritaria y conduce la estrategia junto con nuestro equipo.
-                <div className="mt-4 grid gap-3 text-xs uppercase tracking-wide text-white/70">
-                  {practiceAreas.map((area) => (
-                    <Link key={area.label} href={area.href} className="rounded-lg border border-white/20 px-3 py-2 text-center hover:bg-white/10">
-                      {area.label}
-                    </Link>
-                  ))}
-                </div>
+              <div className="mt-6 space-y-4">
+                {practiceHighlights.map((practice) => (
+                  <ul className="mt-3 space-y-2 text-xs text-white/80">
+                    {practice.cases.map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="rounded-full bg-white/10 p-1" aria-hidden="true">
+                          <Check className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                        </span>
+                        <span className="leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ))}
               </div>
             </article>
           </div>
