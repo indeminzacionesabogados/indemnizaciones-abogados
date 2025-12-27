@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ContactSection } from "@/src/components/sections/contact";
 import { Footer } from "@/src/components/sections/footer";
 import { SiteHeader } from "@/src/components/sections/header";
 import { FloatingActions } from "@/src/components/ui/floating-actions";
@@ -237,8 +236,6 @@ export default function DataPolicyPage() {
             </p>
           </div>
         </section>
-
-        <ContactSection />
       </main>
       <Footer />
       <FloatingActions />
